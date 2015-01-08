@@ -39,10 +39,10 @@ var app = {
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         // var listeningElement = parentElement.querySelector('.listening');
-        // var receivedElement = parentElement.querySelector('.received');
+        var receivedElement = parentElement.querySelector('.received');
 
         // listeningElement.setAttribute('style', 'display:none;');
-        // receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
         // document.getElementById("x").innerHTML = new Date();
@@ -55,7 +55,6 @@ var app = {
         
         // navigator.notification.vibrate( vLen );
         for (var i = vLoop - 1; i >= 0; i--) {
-        // for (var i = 0; i < vLoop; i++) {
               navigator.notification.vibrate( vLen );
               var date = new Date();
               var curDate = null;
