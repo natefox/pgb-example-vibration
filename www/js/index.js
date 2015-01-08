@@ -38,16 +38,31 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        // var listeningElement = parentElement.querySelector('.listening');
+        // var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        // listeningElement.setAttribute('style', 'display:none;');
+        // receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        // document.getElementById("x").innerHTML = new Date();
     },
 
     vibrate: function() {
-      navigator.notification.vibrate( 1000 );
+        var vLen = parseInt(document.getElementById('vlen').value);
+        var vPause = parseInt(document.getElementById('vpause').value) + vLen;
+        var vLoop = parseInt(document.getElementById('vloop').value) ;
+        
+        // navigator.notification.vibrate( vLen );
+        for (var i = vLoop - 1; i >= 0; i--) {
+        // for (var i = 0; i < vLoop; i++) {
+              navigator.notification.vibrate( vLen );
+              var date = new Date();
+              var curDate = null;
+              do { curDate = new Date(); }
+              while(curDate-date < vPause);
+            
+        };
+        
     }
 };
