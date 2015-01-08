@@ -28,14 +28,20 @@
     <body>
         <div class="app">
             <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
+            <div id="deviceready" class="">
                 <p class="event listening">Connecting to Device</p>
                 <div class="event received">
                   <p>Device is Ready</p>
 
-                  <button onclick="app.vibrate();">
-                    Vibrate <small>Enabled</small>
-                  </button>
+                  <div>Length: <input type="number" min="0" max="10000" id="vlen" value="500"></div>
+                  <div>Pause: <input type="number" min="0" max="1000" id="vpause" value="0"></div>
+                  <div>Loop: <input type="number" min="1" max="100" id="vloop" value="1"></div>
+
+                  <div>
+                      <button onclick="vib();">
+                        Vibrate
+                      </button>
+                  </div>
                 </div>
             </div>
         </div>
@@ -43,6 +49,15 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            function vib(){
+                var vlen = $('#vlen').val();
+                var vpause = $('#vpause').val();
+                var vloop = $('#vloop').val();
+                for (i = 0; i < vloop; i++) { 
+                    setTimeout(function() { 
+                        app.vibrate(vlen); }, vpause
+                    );
+                }
         </script>
     </body>
 </html>
