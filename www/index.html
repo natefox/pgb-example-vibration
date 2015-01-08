@@ -54,11 +54,13 @@
                 var vlen = $('#vlen').val();
                 var vpause = $('#vpause').val();
                 var vloop = $('#vloop').val();
-                for (i = 0; i < vloop; i++) { 
-                    setTimeout(function() { 
-                        navigator.notification.vibrate(vlen); }, vpause
-                    );
-                }
+                navigator.notification.vibrate(vlen);
+                
+                // for (i = 0; i < vloop; i++) { 
+                //     setTimeout(function() { 
+                //         navigator.notification.vibrate(vlen); }, vpause
+                //     );
+                // }
             }
         </script>
     </body>
